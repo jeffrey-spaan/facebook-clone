@@ -1,10 +1,39 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { constants } from '@/app/_lib/constants'
+import { useAuth } from '@/app/_context/AuthContext'
 import { useRouter } from 'next/navigation'
+import { login } from '@/app/_lib/api/auth'
+import Snackbar from '@/app/_components/snackbar/Snackbar'
 
 export default function LoginForm() {
+    const { useAuthLogin } = useAuth();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [status, setStatus] = useState<number | null>(null)
+  const [detail, setDetail] = useState<string | null>(null)
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setIsLoading(true)
+  
+    try {
+      const formData = new FormData(e.currentTarget)
+      const { accessToken, data } = await login(formData)
+
+      setStatus(data.status);
+      setDetail(data.detail);
+      if (accessToken && data.status === 200) {
+        useAuthLogin(accessToken);
+        setTimeout(() => {
+          router.push(constants.ROUTER_PATH.APP);  // Redirect after the delay
+        }, 2000);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   const fields = [
     {
@@ -27,7 +56,8 @@ export default function LoginForm() {
 
   return (
     <>
-      <form className="space-y-4 w-full">
+      <Snackbar status={status} detail={detail} />
+      <form onSubmit={onSubmit} className="space-y-4 w-full">
         <div>
           {fields.map((field) => (
             <div key={field.id} className="mt-4">

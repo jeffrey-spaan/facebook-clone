@@ -1,10 +1,53 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { constants } from '@/app/_lib/constants'
+import { useAuth } from '@/app/_context/AuthContext'
 import { useRouter } from 'next/navigation'
+import { register } from '@/app/_lib/api/auth'
+import Snackbar from '@/app/_components/snackbar/Snackbar'
 
 export default function RegisterForm() {
+  const { useAuthLogin } = useAuth();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [status, setStatus] = useState<number | null>(null)
+  const [detail, setDetail] = useState<string | null>(null)
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setIsLoading(true)
+  
+    try {
+      const formData = new FormData(e.currentTarget)
+      // Extract date fields
+      const year = formData.get('year') as string;
+      const day = formData.get('day') as string;
+      const month = formData.get('month') as string;
+      // Format as YYYY-dd-MM
+      if (year && day && month) {
+        const dateOfBirth = `${year}-${day.padStart(2, '0')}-${month.padStart(2, '0')}`;
+        formData.append('dateOfBirth', dateOfBirth);
+      }
+      // Optionally remove the individual fields if not needed by backend
+      formData.delete('year');
+      formData.delete('day');
+      formData.delete('month');
+
+      const { accessToken, data } = await register(formData)
+
+      setStatus(data.status);
+      setDetail(data.detail);
+      if (accessToken && data.status === 200) {
+        useAuthLogin(accessToken);
+        setTimeout(() => {
+          router.push(constants.ROUTER_PATH.APP);  // Redirect after the delay
+        }, 2000);
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   // DOB dropdown state
   const [selectedMonth, setSelectedMonth] = useState<number>(1)
@@ -96,7 +139,8 @@ export default function RegisterForm() {
 
   return (
     <>
-      <form className="space-y-4 w-full">
+      <Snackbar status={status} detail={detail} />
+      <form onSubmit={onSubmit} className="space-y-4 w-full">
         <div className='flex flex-col sm:flex-row gap-x-4'>
           {nameFields.map((nameField) => (
             <div key={nameField.id} className="mt-4">
@@ -113,7 +157,7 @@ export default function RegisterForm() {
           ))}
         </div>
 
-        <label htmlFor="dob" className="block text-xs ml-1 -mb-2 font-medium text-gray-700 dark:text-gray-400">
+        <label htmlFor="dateOfBirth" className="block text-xs ml-1 -mb-2 font-medium text-gray-700 dark:text-gray-400">
           Birthday
         </label>
         <div className="flex gap-2 mt-4">
