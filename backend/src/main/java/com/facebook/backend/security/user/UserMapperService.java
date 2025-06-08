@@ -17,6 +17,10 @@ record UserMapperService(
     public UserDto mapToDto(User user) {
         return new UserDto(
                 user.getId(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getDateOfBirth(),
+                user.getGender(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getRole().getName()
@@ -25,6 +29,10 @@ record UserMapperService(
 
     public User mapCreateDtoToEntity(UserCreateDto userCreateDto) {
         User user = new User();
+        user.setFirstName(userCreateDto.firstName());
+        user.setLastName(userCreateDto.lastName());
+        user.setDateOfBirth(userCreateDto.dateOfBirth());
+        user.setGender(userCreateDto.gender());
         user.setUsername(userCreateDto.username());
         user.setEmail(userCreateDto.email());
         user.setPassword(passwordEncoder.encode(userCreateDto.password()));
@@ -33,6 +41,10 @@ record UserMapperService(
     }
 
     public User mapUpdateDtoToEntity(User user, UserUpdateDto userUpdateDto) {
+        user.setFirstName(userUpdateDto.firstName());
+        user.setLastName(userUpdateDto.lastName());
+        user.setDateOfBirth(userUpdateDto.dateOfBirth());
+        user.setGender(userUpdateDto.gender());
         user.setUsername(userUpdateDto.username());
         user.setEmail(userUpdateDto.email());
         user.setPassword(passwordEncoder.encode(userUpdateDto.password()));
