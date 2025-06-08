@@ -20,8 +20,9 @@ record AuthMapperService(
         user.setGender(authRegisterDto.getGender());
         user.setUsername(authRegisterDto.getUsername());
         user.setEmail(authRegisterDto.getEmail());
-        user.setPassword(passwordEncoder.encode(authRegisterDto.getPassword()));
         user.setRole(roleService.findRoleByName(Constant.Security.Role.ROLE_DEFAULT));
+        user.setPassword(passwordEncoder.encode(authRegisterDto.getPassword()));
+        user.setEnabled(true);
         return user;
     }
 }

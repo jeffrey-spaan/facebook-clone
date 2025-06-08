@@ -17,6 +17,7 @@ export const constants = {
     },
 
     ROUTER_PATH:{
+        APP: '/app',
         DASHBOARD: '/dashboard',
         DASHBOARD_PERMISSIONS: '/dashboard/permissions',
         DASHBOARD_ROLES: '/dashboard/roles',
