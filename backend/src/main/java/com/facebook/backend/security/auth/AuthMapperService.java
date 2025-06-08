@@ -14,6 +14,10 @@ record AuthMapperService(
 
     public User mapCreateDtoToEntity(AuthRegisterDto authRegisterDto) {
         User user = new User();
+        user.setFirstName(authRegisterDto.getFirstName());
+        user.setLastName(authRegisterDto.getLastName());
+        user.setDateOfBirth(authRegisterDto.getDateOfBirth());
+        user.setGender(authRegisterDto.getGender());
         user.setUsername(authRegisterDto.getUsername());
         user.setEmail(authRegisterDto.getEmail());
         user.setPassword(passwordEncoder.encode(authRegisterDto.getPassword()));

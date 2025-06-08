@@ -36,6 +36,10 @@ public final class ValidationConstant {
      * Nested class that contains constants related to User validation.
      */
     public static final class User {
+        public static final int NAME_MIN_CHAR = 2;
+        public static final int NAME_MAX_CHAR = 50;
+        public static final String NAME_PATTERN = "^[\\p{L}]+$";
+
         public static final int EMAIL_OR_USERNAME_MIN_CHAR = 3;
         public static final int EMAIL_OR_USERNAME_MAX_CHAR = 320;
         public static final String EMAIL_OR_USERNAME_PATTERN = "^[^=*]+$";
@@ -56,6 +60,12 @@ public final class ValidationConstant {
         public static final int ROLE_MIN_CHAR = 5;
         public static final int ROLE_MAX_CHAR = 25;
         public static final String ROLE_PATTERN = "^ROLE_[A-Z_]+$";
+
+        public static final String NAME_NOT_BLANK_ERROR = "{validation.user.name.NotBlank}";
+        public static final String NAME_SIZE_ERROR = "{validation.user.name.Size}";
+        public static final String NAME_PATTERN_ERROR = "{validation.user.name.Pattern}";
+
+        public static final String DOB_PAST_ERROR = "{validation.user.dateOfBirth.Past}";
 
         public static final String EMAIL_OR_USERNAME_NOT_BLANK_ERROR = "{validation.user.emailOrUsername.NotBlank}";
         public static final String EMAIL_OR_USERNAME_SIZE_ERROR = "{validation.user.emailOrUsername.Size}";
