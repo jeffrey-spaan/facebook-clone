@@ -7,7 +7,7 @@ import RegisterForm from "@/app/_components/form/RegisterForm";
 export default function RegisterPage() {
   return (
     <>
-      <div className="h-screen flex flex-col sm:justify-center items-center bg-gray-100 dark:bg-gray-900">
+      <div className="h-screen flex flex-col sm:justify-center items-center">
         <div className="w-full sm:max-w-md">
           <div className="flex justify-center my-6">
             <Logo width={200}/>
