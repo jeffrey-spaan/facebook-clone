@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react'
 import { constants } from '@/app/_lib/constants'
 import { useAuth } from '@/app/_context/AuthContext'
 import { useRouter } from 'next/navigation'
+import type { AuthRegisterDto } from '@/app/_lib/types';
 import { register } from '@/app/_lib/api/auth'
 import Snackbar from '@/app/_components/snackbar/Snackbar'
 
@@ -14,27 +15,39 @@ export default function RegisterForm() {
   const [status, setStatus] = useState<number | null>(null)
   const [detail, setDetail] = useState<string | null>(null)
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setIsLoading(true)
-  
-    try {
-      const formData = new FormData(e.currentTarget)
-      // Extract date fields
-      const year = formData.get('year') as string;
-      const day = formData.get('day') as string;
-      const month = formData.get('month') as string;
-      // Format as YYYY-dd-MM
-      if (year && day && month) {
-        const dateOfBirth = `${year}-${day.padStart(2, '0')}-${month.padStart(2, '0')}`;
-        formData.append('dateOfBirth', dateOfBirth);
-      }
-      // Optionally remove the individual fields if not needed by backend
-      formData.delete('year');
-      formData.delete('day');
-      formData.delete('month');
+async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  setIsLoading(true);
 
-      const { accessToken, data } = await register(formData)
+  try {
+    const formData = new FormData(e.currentTarget);
+
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const year = formData.get('year') as string;
+    const month = formData.get('month') as string;
+    const day = formData.get('day') as string;
+    const gender = formData.get('gender') as 'M' | 'F' | 'O';
+
+    const dateOfBirth = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+
+    const username = formData.get('username') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+
+    const payload: AuthRegisterDto = {
+      person: {
+        firstName,
+        lastName,
+        dateOfBirth,
+        gender,
+      },
+      username,
+      email,
+      password,
+    };
+
+    const { accessToken, data } = await register(payload);
 
       setStatus(data.status);
       setDetail(data.detail);

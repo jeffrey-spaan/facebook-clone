@@ -1,14 +1,12 @@
 package com.facebook.backend.security.user;
 
-import java.time.LocalDate;
+import com.facebook.backend.person.PersonDto;
+
 import java.util.UUID;
 
 public record UserDto(
         UUID id,
-        String firstName,
-        String lastName,
-        LocalDate dateOfBirth,
-        Character gender,
+        PersonDto person,
         String username,
         String email,
         String role

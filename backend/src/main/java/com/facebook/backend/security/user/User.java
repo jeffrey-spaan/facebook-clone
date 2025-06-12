@@ -2,6 +2,7 @@ package com.facebook.backend.security.user;
 
 import com.facebook.backend.common.constant.Constant;
 import com.facebook.backend.common.constant.ValidationConstant;
+import com.facebook.backend.person.Person;
 import com.facebook.backend.security.role.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -11,7 +12,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.UUID;
 
@@ -27,18 +27,6 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-
-    @Column(nullable = false, length = ValidationConstant.User.NAME_MAX_CHAR)
-    private String firstName;
-
-    @Column(nullable = false, length = ValidationConstant.User.NAME_MAX_CHAR)
-    private String lastName;
-
-    @Column(nullable = false)
-    private LocalDate dateOfBirth;
-
-    @Column(nullable = false, length = 1)
-    private Character gender;
 
     @Column(nullable = false, unique = true, length = ValidationConstant.User.USERNAME_MAX_CHAR)
     private String username;
@@ -64,6 +52,10 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private boolean enabled;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person person;
 
     @Override
     public boolean isAccountNonExpired() {
