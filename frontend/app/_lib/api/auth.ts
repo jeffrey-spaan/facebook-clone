@@ -1,5 +1,6 @@
 import { constants } from '@/app/_lib/constants'
 import { authFetch } from '@/app/_lib/authFetch'
+import type { AuthRegisterDto } from '@/app/_lib/types';
 
 const API_BASE_URL = constants.API_BASE_URL;
 const API_AUTH_URL = API_BASE_URL + constants.REQUEST_PATH.AUTH;
@@ -40,19 +41,11 @@ export const refresh = async () => {
   return { accessToken, data: json };
 }
 
-export const register = async (formData: FormData) => {
-  const firstName = formData.get('firstName');
-  const lastName = formData.get('lastName');
-  const dateOfBirth = formData.get('dateOfBirth'); // Assuming dob is a string in 'YYYY-MM-DD' format
-  const gender = formData.get('gender');
-  const username = formData.get('username');
-  const email = formData.get('email');
-  const password = formData.get('password');
-
+export const register = async (payload: AuthRegisterDto) => {
   const res = await fetch(`${API_AUTH_URL}/register`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ firstName, lastName, dateOfBirth, gender, username, email, password }),
+    body: JSON.stringify(payload),
     credentials: 'include',
   });
 

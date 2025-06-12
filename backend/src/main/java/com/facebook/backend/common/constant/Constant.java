@@ -78,6 +78,7 @@ public final class Constant {
         public static final String COMMENTS = "comments";
         public static final String LIKES = "likes";
         public static final String PERMISSIONS = "permissions";
+        public static final String PERSONS = "persons";
         public static final String POSTS = "posts";
         public static final String ROLES = "roles";
         public static final String TOKENS = "tokens";

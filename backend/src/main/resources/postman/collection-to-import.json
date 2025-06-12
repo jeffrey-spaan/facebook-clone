@@ -148,7 +148,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"email\": \"test@mail.com\",\r\n    \"password\": \"Password123#\"\r\n}",
+							"raw": "{\r\n    \"person\": {\r\n        \"firstName\": \"FirstTest\",\r\n        \"lastName\": \"LastTest\",\r\n        \"dateOfBirth\": \"2000-02-03\",\r\n        \"gender\": \"M\"\r\n    },\r\n    \"username\": \"testuser\",\r\n    \"email\": \"test@mail.com\",\r\n    \"password\": \"Password123#\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -570,7 +570,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDkwNjMyOTcsImlhdCI6MTc0OTA2MjY5NywianRpIjoiNGJmNTRkYjEtN2JmMS00N2RkLWE5MWItZDkyMjlkMDhjZDhhIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.TO-YSRPdpy_Dx06Bq14M0lbHrCfIccuc3cLbphL3EraWDkn-0rGHechJ0RDTamLfLjTWdAvJOKDJ53vFHWAl8js24WThbvcF1qKpCQwjNwY9zCUeaKSUMQ5k1yLZNifbYlsTn4ymRFJO7xVD5OkI8AyByX7pYiNnSU79UC7dIYWAyUvDXaoVhvK3DrQrRDcTrt6lJV-kXTlP01x-QkeQ__8tzKkyQ8KxDjKbmb1wHqjBYYsfgsbdAYZ8bd3f1pon7j1aZZtYjgXNy1R-pU7y1CwAxP9wocaAJ6rygDo47U307aMhk7LcRb7AI472mxa_NK6NMvXaqEnYxwjr46vWPg",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk2NjY0MDAsImlhdCI6MTc0OTY2NTgwMCwianRpIjoiZGEwNzEwOGMtMmFlYS00MDlmLTkzZTAtNTU1Mjk0OWRmMzU0IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.sFDTDE1Z0SVf5YGsX4bjxERJepgniW0A0FjpbikrGF2JhGIqvqvytzygJCU7DbArzfd2EJXdjb0Otc0wuS5m9P-YR_qn-EoVgJ94LD1K9J7TOPhLFD4tiOK_MaMyOgbcuADWaolR711dnbybSi0YsYcQexyyelPPLRvbkV2OCTCUikJ39Af0INrb6cJT0IAQlb08wepPA3uSu7EEADlTfAyVoaGPG_BnTYiMclW6JxKnsT-3p0frEObJ1JIsL9JWkRGboZHBNA4QTJ1w7tQR8dK4k1la47PjHCOrgVK_JKLta8gIihOQcDPyPF3PcjZSYrsNFxf3L4FuRkZO6dRfuQ",
 									"type": "string"
 								}
 							]
@@ -730,7 +730,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46d3JpdGUiLCJhZG1pbjpjcmVhdGUiLCJhZG1pbjpkZWxldGUiXSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2JhY2tlbmQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTc0NTUxOTQ4OCwiaWF0IjoxNzQ1NTE4ODg4LCJqdGkiOiI2OWRmOGIxMS1iNmFhLTRkOWEtODFjZC01MTRkMjRjZTNkNjkiLCJlbWFpbCI6ImFkbWluQG1haWwuY29tIn0.nng4Bg3aPJ0bC0q5yU5VdCAp5_2G4US6p-daEH7Qyxy7494hVACYWXVaM-TlA-1lnUKxqhST4fyvFOLETFzCsVtxzB67WPYibKDuR9LHvJ8GMDF_LVf17kI0RxTd_kPuKUFrE097LViY0iqiMU2qY5PVQjArHSZ038WkbWjKAVbXw6MCHUZdzGnHaK_Dk3ABndjstV9uJgKRFJF5G9mtPRmY0FYUOJAd0SMo9vVtBuXZ0qPJVyKwcwF7OUWsJaYnefJTtxczbtiiCdkUjXDNERZjd8p-Qg0wX_5QKRU_xwLVy2AKdnwxdq9_jKvELxyedgIF7K3FhHgVYPUIgtmpCw",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk2NjYxOTYsImlhdCI6MTc0OTY2NTU5NiwianRpIjoiMWQ1ZTk4YTktNDM0Yi00OTRjLWFjYTktNTMyM2VjYmNkZmU3IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.GTERcaUHRvKLwfzMuFRcFFCyA9GFN2CA1NtUMuPERdjYlPDJ0fmsVNjg-49rYCzmyO-3fNcv-JoXdEYsES5nj_Q1wY1ZOlirl6xszWINhzg9J55-GIqRILC57y9p8LkkCZWTXMXn3P2SnyZOHgrV9nlUioiVxmt_DK_x2snu6eAoUz-so4WRi28X1bXfNUx7nmAR74dt_BYyDohT_o6Se2ybm77iadJXr_IoZJk_BiX9VT-DhjGGTpxiYZNjc2fnWnRQrdi19KqvwjF9Ii5nCjz0x1SbYEFLi5I2-YNVDxFEHWJEdXla7rhBijbinffHZeu4ELYsJ-OBCE_odbKivg",
 									"type": "string"
 								}
 							]
@@ -739,7 +739,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"newuser\",\r\n    \"email\": \"newuser@mail.com\",\r\n    \"password\": \"Password123#\",\r\n    \"role\": \"ROLE_MODERATOR\"\r\n}",
+							"raw": "{\r\n    \"person\": {\r\n        \"firstName\": \"FirstUser\",\r\n        \"lastName\": \"LastUser\",\r\n        \"dateOfBirth\": \"2000-02-03\",\r\n        \"gender\": \"M\"\r\n    },\r\n    \"username\": \"newuser\",\r\n    \"email\": \"newuser@mail.com\",\r\n    \"password\": \"Password123#\",\r\n    \"role\": \"ROLE_MODERATOR\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -770,7 +770,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDU1MTk3NTIsImlhdCI6MTc0NTUxOTE1MiwianRpIjoiYTMzZTNkNWYtYmFiZC00ZGMyLWE1NTEtNDkwOWZhZWU4OTg1IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.U8eO_U5ACPxn4TqH1JiZEAdJWzAxMGEWNgGznHr8q0Sfe6tOQB5HsGsHC00EJcTJBMYbKfRtNsyqrcRCnmByNC2YHVsnOjJ4c8i6TouTdUTMJvQ4SVJxD74BL-4g1Y6nNxZ-3w5_11a-b32klk94OJO-_c_sbhR0J9AqrrAqwHMZZyTcT_r9FHVjqe5qpnaV7yUuY2o4-TfmSNieSLMe-qo7byzY3AOyjTCnYpSrVtofqPXqGOmeHLQKUx4S0xH04cVQFuGil2ssgXH2WFU7bB9JfDSgg-catMRmKvN3k7OBppKvH9IuShgdghxST_LA1xn9yutAF9eQjFk3fjI1Jg",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk2NjYyNjUsImlhdCI6MTc0OTY2NTY2NSwianRpIjoiNTJkNjk5NzQtYTEwMy00NTM3LWFmN2QtMzVmMDlhZjVmYTI1IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.WhNJ1rCrGR3a9rCakfWHJcpCmiN_O5YBgiqTkxryr9HNFF3qzssS6CM07ReNHb_KCH2yfGmz1tX6k7Sw8n0Ly_4DECVFjuJmg5CnNmMMLyKW0GgkFmVA62m5Je7NTMEOXcTqPvpMDOp130w03Z65q7iQnZpZ9a8GtrryoQitL3F6-ZXjsVDgr5Wwtq_jPWy55nICkYBnITEvPliBnI0sHpZZS0yq-xXjfpJoyVtXzHju5SaaFSX7pXrgOnOKPdkTJTFwrB3OTbTZgIlnG-byrJz0pBCuqX9xBh0F3csKiREQ3ieEZixTFRZXb1ak-IW8yWChHZ9bEilWocMNTLSTEA",
 									"type": "string"
 								}
 							]
@@ -779,7 +779,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"userupdate\",\r\n    \"email\": \"userupdate@mail.com\",\r\n    \"password\": \"NewPassword123#\",\r\n    \"role\": \"ROLE_ADMIN\"\r\n}",
+							"raw": "{\r\n    \"person\": {\r\n        \"firstName\": \"FirstUpdate\",\r\n        \"lastName\": \"LastUpdate\",\r\n        \"dateOfBirth\": \"2000-02-03\",\r\n        \"gender\": \"F\"\r\n    },\r\n    \"username\": \"userupdate\",\r\n    \"email\": \"userupdate@mail.com\",\r\n    \"password\": \"NewPassword123#\",\r\n    \"role\": \"ROLE_ADMIN\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
