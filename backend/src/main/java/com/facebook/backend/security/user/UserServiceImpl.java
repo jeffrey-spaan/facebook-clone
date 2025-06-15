@@ -1,7 +1,7 @@
 package com.facebook.backend.security.user;
 
 import com.facebook.backend.common.payload.exception.ResourceNotFoundException;
-import com.facebook.backend.security.role.RoleRepository;
+import com.facebook.backend.security.role.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ class UserServiceImpl implements UserService {
 
     private final UserMapperService userMapperService;
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final RoleService roleService;
 
     @Override
     public List<UserDto> findAllUsers() {
@@ -55,7 +55,7 @@ class UserServiceImpl implements UserService {
 
     @Override
     public List<UserMapDto> userCountPerRole() {
-        return roleRepository.findAll().stream()
+        return roleService.retrieveRolesList().stream()
                 .map(role -> UserMapDto.builder()
                         .key(role.getName())
                         .value(userRepository.countByRoleId(role.getId()))

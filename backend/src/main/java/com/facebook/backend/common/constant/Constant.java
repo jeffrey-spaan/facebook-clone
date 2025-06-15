@@ -18,6 +18,7 @@ public final class Constant {
     public static final class Request {
         public static final String AUTH = "/auth";
         public static final String COMMENTS = "/comments";
+        public static final String IMAGES = "/images";
         public static final String LIKES = "/likes";
         public static final String PERMISSIONS = "/permissions";
         public static final String POSTS = "/posts";
@@ -76,6 +77,7 @@ public final class Constant {
      */
     public static final class Table {
         public static final String COMMENTS = "comments";
+        public static final String IMAGES = "images";
         public static final String LIKES = "likes";
         public static final String PERMISSIONS = "permissions";
         public static final String PERSONS = "persons";

@@ -2,6 +2,7 @@ package com.facebook.backend.security.user;
 
 import com.facebook.backend.common.constant.Constant;
 import com.facebook.backend.common.constant.ValidationConstant;
+import com.facebook.backend.image.Image;
 import com.facebook.backend.person.Person;
 import com.facebook.backend.security.role.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -12,7 +13,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -56,6 +59,10 @@ public class User implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "person_id", referencedColumnName = "id")
     private Person person;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Image> images = new ArrayList<>();
 
     @Override
     public boolean isAccountNonExpired() {
