@@ -239,6 +239,209 @@
 			]
 		},
 		{
+			"name": "image",
+			"item": [
+				{
+					"name": "getProfileImageByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk5OTM1NTgsImlhdCI6MTc0OTk5Mjk1OCwianRpIjoiOWJkYWRmM2EtNTljYy00ZTUxLTkzNGYtZWRkNGRhNTg3ZjY1IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.0byFBmmQc4QK6CRF26DJiqmQ5Nu2MJYeMrcCbNrwqFYHXsD8YhIHii_Pof9hG8za3zvfbZ3IvFBcbYg2m3RDJ8dFm1YlZ0v3uDf7J8J-AnL_7XFZWjCVGghygXFUeeZfWLrcv1lqCkYAfJtwcx2v56b8e8vPqxPDrLSSYEymRQ0Ue6MdyN4UG4NJjcEzc7yP_f8PiBFNaa5JSHdXeuTVhLsYMrDlqLoG1zGMXTwP7ID6TqN52U51YSJ-eG5-WFbxAUEE21QAdJL1Rz6jd1l8_AhukqP87Q-eqKUjhu0oqC7oisQ1FXNwUBCwCCADtHPMjBVBb8KuBgBdGXWjR_OcOQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "550e8400-e29b-41d4-a716-446655440201",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/images/profile-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"profile-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCoverImageByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk5OTI1OTUsImlhdCI6MTc0OTk5MTk5NSwianRpIjoiOTA5NWEyNTgtMzI0OS00NzIyLWE3MjAtYzEwYTkwOTEwMTBhIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.Pceuk7LsZfHzPjVZzIiI8IUYkW5ofSHm-oWWbp5GoS0NvHgwKAvg9BQc7tBKnYXPmPqrKavuWchkX0HUdCnhDVXCfUi6ZhniZMjJo2L3ohDuwwlc7fx2cbmn0lar7FYBACd69EYYzYuVjSnTm4K3ZHcPtrGYFs7HLdrqwDHFxd52hu8x1FHK1tn8-JBtxCB6QzZLfJfcZim_JbW2NdfpOpJElzdnG_jTRHBQrlZdrn52j8t5T48CgPfOXg7tJAiUdkwM78TzfpjWF9_ec8hOyA-Xo3qGfjfJpaQYMsdl0LAUeOlbbXzzAlx0IpkVL4hcxr_fp2j5rSyBWny_9AZvow",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "550e8400-e29b-41d4-a716-446655440201",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/images/cover-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"cover-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAlbumImagesByUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDgwMDE4NjEsImlhdCI6MTc0ODAwMTI2MSwianRpIjoiNWUxZjFkZDEtMTg4MC00YjQxLThhODUtY2QxMTEwZjdhOGEyIiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.mQF8QDm8yaNgEPgZtP4UHZmoIZlCZAQMGrhLkCFGfbvCBuZ5Bh2iKT6iZUL6iqV0gQlKL8wC-s9yNKsyCUzSDZh43Qc9fMPIAt_UPgQ8YgX3eg2ffvrSaiRwGRRJaYDDG8iSKLt3c0K7hZ-67uJdEdC_8GCHktkrKfm9Ob3git8PhsdIn3IjlU8MNUlOHeWDxrasRDe5b_Ml1ilBqnNzDXkZ1rGo1yxrbbT_C9Mj4gI47m-Vyk2f_CsNdF4IPwbNamuP56u4fB4XFEHGYVKhFw24-5ZIHJNb2UlUEZ5k71SI752EMyT4wrQusneIdj0meMv1a8E7zHkDocvj9GYNCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "550e8400-e29b-41d4-a716-446655440201",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/images/album-images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"images",
+								"album-images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createImage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI1NTBlODQwMC1lMjliLTQxZDQtYTcxNi00NDY2NTU0NDAyMDMiLCJzY29wZSI6WyJhZG1pbjpyZWFkIiwiYWRtaW46dXBkYXRlIiwiYWRtaW46Y3JlYXRlIiwiYWRtaW46ZGVsZXRlIl0sImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MS9iYWNrZW5kIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NDk5OTM1NTgsImlhdCI6MTc0OTk5Mjk1OCwianRpIjoiOWJkYWRmM2EtNTljYy00ZTUxLTkzNGYtZWRkNGRhNTg3ZjY1IiwiZW1haWwiOiJhZG1pbkBtYWlsLmNvbSJ9.0byFBmmQc4QK6CRF26DJiqmQ5Nu2MJYeMrcCbNrwqFYHXsD8YhIHii_Pof9hG8za3zvfbZ3IvFBcbYg2m3RDJ8dFm1YlZ0v3uDf7J8J-AnL_7XFZWjCVGghygXFUeeZfWLrcv1lqCkYAfJtwcx2v56b8e8vPqxPDrLSSYEymRQ0Ue6MdyN4UG4NJjcEzc7yP_f8PiBFNaa5JSHdXeuTVhLsYMrDlqLoG1zGMXTwP7ID6TqN52U51YSJ-eG5-WFbxAUEE21QAdJL1Rz6jd1l8_AhukqP87Q-eqKUjhu0oqC7oisQ1FXNwUBCwCCADtHPMjBVBb8KuBgBdGXWjR_OcOQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/tesla/Downloads/logo.png"
+								},
+								{
+									"key": "userId",
+									"value": "550e8400-e29b-41d4-a716-446655440201",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test description",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "PROFILE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/images",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"images"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "permission",
 			"item": [
 				{

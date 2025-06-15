@@ -31,6 +31,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public List<Role> retrieveRolesList() {
+        return roleRepository.findAll();
+    }
+
+    @Override
     public RoleDto findRoleById(UUID id) {
         return roleMapperService.convertToDto(this.findById(id));
     }

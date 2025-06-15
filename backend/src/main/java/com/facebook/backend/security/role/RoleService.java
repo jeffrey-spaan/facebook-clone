@@ -10,6 +10,7 @@ import java.util.UUID;
 public interface RoleService {
     Role findRoleByName(String name);
     List<RoleDto> findAllRoles();
+    List<Role> retrieveRolesList();
     RoleDto findRoleById(UUID id);
     RoleDto createRole(RoleCreateDto roleCreateDto);
     RoleDto updateRoleById(UUID id, RoleUpdateDto roleUpdateDto);
